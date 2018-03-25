@@ -8,6 +8,8 @@ class PersonAdmin(admin.ModelAdmin):
     list_display = ['first_name','last_name','gender','birthday']
 
 
+
+
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ['mobile_phone','residential_phone','email','person']
