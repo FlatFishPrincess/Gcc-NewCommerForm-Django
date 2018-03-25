@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3>information Form</h3>
+    <form method="POST">
+        {% csrf_token %}
+    <div class="card text-center">
+        <div class="card-header">
+          Delete Confirmation 
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Remove {{ person.first_name }}?</h5>
+          <p class="card-text">When you click Remove, remove {{ person.first_name }} information</p>
+          <button type="submit" class="btn btn-primary">Remove</button>
+        </div>
+        <div class="card-footer text-muted">
+          
+        </div>
+      </div>
+    </form>
+{% endblock %}

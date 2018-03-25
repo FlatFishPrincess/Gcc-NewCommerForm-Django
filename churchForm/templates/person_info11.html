@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            "{{person_info.last_name|capfirst}} {{person_info.first_name|capfirst}}" 
+        </div>                   
+            <li class="list-group-item">First_name: {{ person_info.first_name|capfirst }}</li>
+            <li class="list-group-item">Last_name: {{ person_info.last_name }}</li>
+            <li class="list-group-item">Gender: {{ person_info.gender }}</li>
+            <li class="list-group-item">Birthday: {{ person_info.birthday }}</li>
+            <li class="list-group-item">Duty: {{ duty.duty }}</li>
+        <div class="card-header">
+            Church information
+        </div>
+            <li class="list-group-item">Baptized date(option): {{ church_info.baptized_date }}</li>
+            <li class="list-group-item">Baptized church(option):{{ church_info.baptized_church }}</li>
+            <li class="list-group-item">Aquaintance(option): {{ church_info.aquaintance }}</li>
+            <li class="list-group-item">Service_experience(option): {{ church_info.service_experience }}</li>
+        <div class="card-header">
+           Detail personal information
+        </div>
+            <li class="list-group-item">Community: {{ person_detail.community }}</li>
+            <li class="list-group-item">Status: {{ person_detail.status }}</li>
+            <li class="list-group-item">Job: {{ person_detail.job }}</li>
+            <li class="list-group-item">Company name: {{ person_detail.company_name }}</li>
+
+        <div class="card-header">
+            Contacts
+        </div>
+            <li class="list-group-item">Phone: {{ contacts.mobile_phone }}</li>
+            <li class="list-group-item">Residential phone(option): {{ contacts.residential_phone }}</li>
+            <li class="list-group-item">Email{{ contacts.email }}</li>
+        <div class="card-header">
+            Family relationship
+        </div>
+            <li class="list-group-item">{{ family.family_relationship }}</li>
+        <div class="card-header">
+            Vehicle
+        </div>
+            <li class="list-group-item">(option){{ contacts.licence_plate }}</li>
+        <div class="card-header">
+            Address
+        </div>
+            <li class="list-group-item">{{ address.street1 }}</li>
+            <li class="list-group-item">(option){{ address.street2 }}</li>
+            <li class="list-group-item">{{ address.city }}</li>
+            <li class="list-group-item">{{ address.postal_code }}</li>
+        </ul>       
+    </div>
+    <a class="btn btn-primary" href="{% url 'update' person_info.id %}">Update</a>
+    <a class="btn btn-primary" href="{% url 'delete' person_info.id %}">Delete</a>
+{% endblock %}

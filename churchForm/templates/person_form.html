@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}   
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        <h2>information Form</h2>
+        <div class="input-group-sm mb-3">
+            {{ personForm}}
+        </div>
+        <div class="input-group-sm mb-3">
+            {{ contactForm.as_table }}
+        </div>
+        <div class="input-group-sm mb-3">
+        {{ dutyForm.as_table }}
+        </div>
+        <div class="input-group-sm mb-3">
+        {{ church_infoForm.as_table }}
+        </div>
+        <div class="input-group-sm mb-3">
+        {{ detailForm.as_table }}
+        </div>
+        <div class="input-group-sm mb-3">
+        {{ addressForm.as_table }}
+        </div>
+        <div class="input-group-sm mb-3">
+        {{ vehicleForm.as_table }}
+        </div>
+        <div class="input-group-sm mb-3">
+        {{ familyForm.as_table }}
+        </div>
+        <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+       
+    {% if person %}
+        <a href="{% url 'delete' person.id %}">Delete</a>
+    {% endif %}
+
+    <!-- manually render form for bootstrap, 
+    Add validation! -->
+{% endblock %}

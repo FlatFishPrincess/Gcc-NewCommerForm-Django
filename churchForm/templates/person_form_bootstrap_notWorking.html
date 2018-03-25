@@ -1,0 +1,37 @@
+{% load bootstrap %}
+{% bootstrap_css %}
+{% extends "base.html" %}
+{% block content %}
+    <h3>information Form</h3>
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {% bootstrap_form personForm %}
+        <!-- {{ personForm |bootstrap}}
+        {{ contactForm |bootstrap }}
+        {{ dutyForm |bootstrap}}
+        {{ church_infoForm |bootstrap }}
+        {{ detailForm |bootstrap }}
+        {{ addressForm |bootstrap}}
+        {{ vehicleForm |bootstrap}}
+        {{ familyForm |bootstrap }} -->
+        <button type="submit">submit</button>
+    </form>
+        <!-- <form method="POST" class="form-group"></form>
+                <input type='hidden' name='csrfmiddlewaretoken' value='XQdnwdnnBFBHpt0jvOQsAmONElFrGXTLtcKvx5vZoI9H4SNIoFaPPZLn8LJgSwU4' />
+                <label for="id_first_name" >First name:</label>
+                <input type="text" name="first_name" maxlength="10" required id="id_first_name"  class="form-control"/>
+                <label for="id_last_name">Last name:</label>
+                <input type="text" name="last_name" maxlength="10" required id="id_last_name"  class="form-control"/>
+                <label for="id_gender">Gender:</label>
+                <input type="text" name="gender" maxlength="10" required id="id_gender"  class="form-control"/>
+                <label for="id_birthday">Birthday:</label>
+                <input type="text" name="birthday" required id="id_birthday"  class="form-control"/>
+                <button type="submit">submit</button>
+            </form> -->
+    {% if person %}
+        <a href="{% url 'delete' person.id %}">Delete</a>
+    {% endif %}
+
+    <!-- manually render form for bootstrap, 
+    Add validation! -->
+{% endblock %}
